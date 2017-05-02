@@ -11,9 +11,13 @@ https://nodejs.org/download/release/v7.9.0/
 ### Create the project with Ionic 3.1.1
 
 `git clone https://github.com/driftyco/ionic2-app-base ./my-app`
+
 `cd ./my-app && git reset --hard c252ef8e2e`
+
 `git clone https://github.com/driftyco/ionic2-starter-blank ./tmp`
+
 `cd ./tmp && git reset --hard d85ded4 && cd ../`
+
 `cp -r ./tmp/* ./ && rm -rf ./tmp`
 
 ## Set up Unit Testing
