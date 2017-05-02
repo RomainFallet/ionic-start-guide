@@ -71,3 +71,8 @@ https://nodejs.org/download/release/v7.9.0/
   "ionic_webpack": "./webpack.envars.js"
 }
 ```
+
+### 3.3 Add this inside your test-config/karma.conf
+```javascript
+var envarsConfig = require('../webpack.envars.js');
+```
