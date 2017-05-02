@@ -51,7 +51,7 @@ https://nodejs.org/download/release/v7.9.0/
 `cp -r ./tmp/{e2e,test-config} ./ && rm -rf ./tmp`
 
 ### 2.3 Append this to "scripts" inside your package.json :
-```
+```json
 "test": "karma start ./test-config/karma.conf.js",
 "test-ci": "karma start ./test-config/karma.conf.js --single-run",
 "e2e": "webdriver-manager update --standalone false --gecko false; protractor ./test-config/protractor.conf.js"
