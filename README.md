@@ -60,5 +60,7 @@ https://nodejs.org/download/release/v7.9.0/
 ## 3. Set up Environment Variables
 
 ### 3.1 Add conf file and Environments Variables json files
+
 `git clone https://github.com/RomainFallet/ionic-start-guide ./tmp`
+
 `cp -r ./tmp/{env,webpack.envars.js} ./ && rm -rf ./tmp`
