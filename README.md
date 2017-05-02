@@ -50,7 +50,7 @@ https://nodejs.org/download/release/v7.9.0/
 
 `cp -r ./tmp/{e2e,test-config} ./ && rm -rf ./tmp`
 
-### 2.3 Append this to "scripts" inside your package.json :
+### 2.3 Append this to "scripts" inside your package.json
 ```json
 "test": "karma start ./test-config/karma.conf.js",
 "test-ci": "karma start ./test-config/karma.conf.js --single-run",
@@ -64,3 +64,10 @@ https://nodejs.org/download/release/v7.9.0/
 `git clone https://github.com/RomainFallet/ionic-start-guide ./tmp`
 
 `cp -r ./tmp/{env,webpack.envars.js} ./ && rm -rf ./tmp`
+
+### 3.2 Add this inside your package.json
+```json
+"config": {
+  "ionic_webpack": "./config/webpack.config.js"
+}
+```
