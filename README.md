@@ -6,11 +6,15 @@
 https://nodejs.org/download/release/v7.9.0/
 
 ### Install Npm 4.2.0, Cordova 6.5.0 and Ionic 2.2.3
-sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3
+`sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3`
 
-### Create the project
-ionic start my-app blank
-cd ./my-app
+### Create the project with Ionic 3.1.1
+
+`git clone https://github.com/driftyco/ionic2-app-base ./my-app`
+`cd ./my-app && git reset --hard c252ef8e2e`
+`git clone https://github.com/driftyco/ionic2-starter-blank ./tmp`
+`cd ./tmp && git reset --hard d85ded4 && cd ../`
+`cp -r ./tmp/* ./ && rm -rf ./tmp`
 
 ## Set up Unit Testing
 
@@ -35,3 +39,6 @@ cd ./my-app
 "ts-loader": "2.0.3",
 "ts-node": "3.0.2"
 ```
+
+### Install your dependencies
+`npm install`
