@@ -68,6 +68,6 @@ https://nodejs.org/download/release/v7.9.0/
 ### 3.2 Add this inside your package.json
 ```json
 "config": {
-  "ionic_webpack": "./config/webpack.config.js"
+  "ionic_webpack": "./webpack.envars.js"
 }
 ```
