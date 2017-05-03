@@ -1,4 +1,4 @@
-# Create a full and powerful worflow with Ionic 2
+# Create a full and powerful worflow with Ionic
 
 ## (03 May 2017)
 ## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment
