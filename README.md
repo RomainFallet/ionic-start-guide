@@ -262,7 +262,7 @@ If you're using Github for your app source control. You can simply publish your 
 ![ionic-github-publish-docs](https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png)
 
 I made it for this repo, you can view it here :
-https://romainfallet.github.io/ionic-start-guide/
+https://romainfallet.github.io/ionic-workflow-guide/
 
 ### 4.6 Automatically generate docs on push
 
@@ -394,4 +394,4 @@ To deploy, you just have to commit some changes. The automatic deploy will do th
 
 I made it for this repo, you can view it here :
 
-https://ionic-start-guide.herokuapp.com/
+https://ionic-workflow-guide.herokuapp.com/
