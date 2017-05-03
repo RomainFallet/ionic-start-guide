@@ -1,4 +1,4 @@
-# Create a ful and powerfull worflow with Ionic 3
+# Create a full and powerful worflow with Ionic 3
 
 ## (03 May 2017)
 ## Features : Unit Testing, Environment variables, Automatic documentation
@@ -252,6 +252,8 @@ Our app is fully in production mode !
 ### 4.4 Generate the docs (docs will be available inside your "docs" folder)
 
 `npm run compodoc`
+
+Then, open "docs/index.html" in your browser to see your docs.
 
 ### 4.5 Publish docs on Github pages
 
