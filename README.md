@@ -248,3 +248,13 @@ Our app is fully in production mode !
 ```json
 "compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"
 ```
+
+### 4.4 Generate the docs (docs will be available inside your "docs" folder)
+
+`npm run compodoc`
+
+### 4.5 Publish docs on Github pages
+
+If you're using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source.
+
+![ionic-github-publish-docs](https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png)
