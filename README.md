@@ -1,9 +1,28 @@
-# Create a new Ionic App with Unit Testing and Environment Variables
+# Create a full and powerfull worflow with Ionic 3
+
+## Unit Testing and Environment Variables (03 May 2017)
+
+Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to maintain through time.
+
+There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.
+
+That's why I make this repository. You will find here a step by step guide, where nearly all implementations are versions specific and based on Ionic official repositories, so that this guide will still be consistent 3 months later and can easily be updated with Ionic updates.
+
+====================================================================================
+## Quickstart
+You'll find next a step by step guide, but if you want to make this quick, you can simply clone this repository. It contains the exact code that will be created by following the guide.
+
+`git clone https://github.com/RomainFallet/ionic-start-guide/`
+
+====================================================================================
 
 ## 1. The basics
+I'm specifying Git, Node, Npm, Cordova and Ionic-CLI version in case a new version of these packages would break something or add an error/warning in the future. This will ensure that you'll follow this guide in the exact same conditions, but it may work with different versions of these.
 
-### 1.1 Install Node 7.9.0
+### 1.1 Install Node 7.9.0 and Git 2.12.2
 https://nodejs.org/download/release/v7.9.0/
+
+https://git-scm.com/downloads
 
 ### 1.2 Install Npm 4.2.0, Cordova 6.5.0 and Ionic CLI 2.2.3
 `sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3`
@@ -65,14 +84,14 @@ https://nodejs.org/download/release/v7.9.0/
 
 `cp -r ./tmp/{env,webpack.envars.js} ./ && rm -rf ./tmp`
 
-### 3.2 Add this inside your package.json
+### 3.2 Add this inside your package.json. This will add your environment variables when you'll use Ionic commands to build or serve your app.
 ```json
 "config": {
   "ionic_webpack": "./webpack.envars.js"
 }
 ```
 
-### 3.3 Add this inside your test-config/karma.conf
+### 3.3 Add this inside your test-config/karma.conf to make your environment variables available during your tests.
 ```javascript
 var envarsConfig = require('../webpack.envars.js');
 ```
