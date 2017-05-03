@@ -1,3 +1,5 @@
+![ionic-workflow](https://cloud.githubusercontent.com/assets/6952638/25675179/d46a4700-303d-11e7-8df9-b4d8f0e89741.png)
+
 # Create a full and powerful worflow with Ionic
 
 ## (03 May 2017)
