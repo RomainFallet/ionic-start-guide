@@ -13,7 +13,7 @@ That's why I make this repository. You will find here a step by step guide, wher
 ## Quickstart
 You'll find next a step by step guide, but if you want to make this quick, you can simply clone this repository. It contains the exact code that will be created by following the guide.
 
-`git clone https://github.com/RomainFallet/ionic-start-guide/`
+`git clone https://github.com/RomainFallet/ionic-workflow-guide/`
 
 ====================================================================================
 
