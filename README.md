@@ -1,7 +1,7 @@
 # Create a full and powerful worflow with Ionic 2
 
 ## (03 May 2017)
-## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server
+## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment
 
 Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.
 
@@ -257,9 +257,12 @@ Then, open "docs/index.html" in your browser to see your docs.
 
 ### 4.5 Publish docs on Github pages
 
-If you're using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source.
+If you're using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source to your "docs" folder.
 
 ![ionic-github-publish-docs](https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png)
+
+I made it for this repo, you can view it here :
+https://romainfallet.github.io/ionic-start-guide/
 
 ### 4.6 Automatically generate docs on push
 
@@ -327,8 +330,24 @@ app.listen(port, function() {
 "start": "NODE_ENV=prod node ./server.js"
 ```
 
-### 5.5 Our production app can now be started with this command
+### 5.5 Our production app server can now be started with this command
 
 `npm run start`
 
 ![ionic-production-app-server](https://cloud.githubusercontent.com/assets/6952638/25668300/a09c1ec4-3026-11e7-85ce-4a775ac66872.png)
+
+## 6. Automatic deployment
+
+Now that we have a production ready server. We need to deploy it somewhere in the web !
+
+### 6.1 Create a free account on Heroku
+
+https://www.heroku.com/
+
+### 6.2 Create a new app
+
+![ionc-heroku-create-app](https://cloud.githubusercontent.com/assets/6952638/25668884/3b90b2c2-3028-11e7-8596-d14a56634b24.png)
+
+### 6.3 Link your app with your Github account
+
+![ionic-heroku-deploy](https://cloud.githubusercontent.com/assets/6952638/25668887/3e98c392-3028-11e7-9b24-6ce0985874f0.png)
