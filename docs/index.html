@@ -252,16 +252,168 @@
                </div>
                <div class="content readme">
                    <div class="content-data">
-<p>This is a starter template for <a href="http://ionicframework.com/docs/">Ionic</a> projects.</p>
-<h2 id="how-to-use-this-template">How to use this template</h2>
-<p><em>This template does not work on its own</em>. The shared files for each starter are found in the <a href="https://github.com/driftyco/ionic2-app-base">ionic2-app-base repo</a>.</p>
-<p>To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the <a href="https://github.com/driftyco/ionic2-app-base">Starter App Base</a>.</p>
-<h3 id="with-the-ionic-cli-">With the Ionic CLI:</h3>
-<p>Take the name after <code>ionic2-starter-</code>, and that is the name of the template to be used when using the <code>ionic start</code> command below:</p>
-<pre class="line-numbers"><code class="language-bash">$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank</code></pre><p>Then, to run it, cd into <code>myBlank</code> and run:</p>
-<pre class="line-numbers"><code class="language-bash">$ ionic platform add ios
-$ ionic run ios</code></pre><p>Substitute ios for android if not on a Mac.</p>
+<h1 id="create-a-full-and-powerful-worflow-with-ionic-3">Create a full and powerful worflow with Ionic 3</h1>
+<h2 id="-03-may-2017-">(03 May 2017)</h2>
+<h2 id="features-unit-testing-environment-variables-automatic-documentation">Features : Unit Testing, Environment variables, Automatic documentation</h2>
+<p>Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to maintain through time.</p>
+<p>There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.</p>
+<p>That&#39;s why I make this repository. You will find here a step by step guide, where nearly all implementations are versions specific and based on Ionic official repositories, so that this guide will still be consistent 3 months later and can easily be updated with Ionic updates.</p>
+<p>====================================================================================</p>
+<h2 id="quickstart">Quickstart</h2>
+<p>You&#39;ll find next a step by step guide, but if you want to make this quick, you can simply clone this repository. It contains the exact code that will be created by following the guide.</p>
+<p><code>git clone https://github.com/RomainFallet/ionic-start-guide/</code></p>
+<p>====================================================================================</p>
+<h2 id="1-the-basics">1. The basics</h2>
+<p>I&#39;m specifying Git, Node, Npm, Cordova and Ionic-CLI version in case a new version of these packages would break something or add an error/warning in the future. This will ensure that you&#39;ll follow this guide in the exact same conditions, but it may work with different versions of these.</p>
+<h3 id="1-1-install-node-7-9-0-and-git-2-12-2">1.1 Install Node 7.9.0 and Git 2.12.2</h3>
+<p><a href="https://nodejs.org/download/release/v7.9.0/">https://nodejs.org/download/release/v7.9.0/</a></p>
+<p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<h3 id="1-2-install-npm-4-2-0-cordova-6-5-0-and-ionic-cli-2-2-3">1.2 Install Npm 4.2.0, Cordova 6.5.0 and Ionic CLI 2.2.3</h3>
+<p><code>sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3</code></p>
+<h3 id="1-3-create-the-project-with-ionic-3-1-1-replace-my-app-by-the-name-you-want-for-your-project-">1.3 Create the project with Ionic 3.1.1 (replace &quot;my-app&quot; by the name you want for your project)</h3>
+<p><code>git clone https://github.com/driftyco/ionic2-app-base ./my-app</code></p>
+<p><code>cd ./my-app &amp;&amp; git reset --hard c252ef8e2e</code></p>
+<p><code>git clone https://github.com/driftyco/ionic2-starter-blank ./tmp</code></p>
+<p><code>cd ./tmp &amp;&amp; git reset --hard d85ded4 &amp;&amp; cd ../</code></p>
+<p><code>cp -r ./tmp/* ./ &amp;&amp; rm -rf ./tmp</code></p>
+<h2 id="2-set-up-unit-testing">2. Set up Unit Testing</h2>
+<h3 id="2-1-append-this-to-devdependencies-inside-your-package-json">2.1 Append this to &quot;devDependencies&quot; inside your package.json</h3>
+<pre class="line-numbers"><code class="language-json">"@ionic/cli-build-ionic-angular": "0.0.3",
+"@ionic/cli-plugin-cordova": "0.0.9",
+"@types/jasmine": "2.5.41",
+"@types/node": "7.0.8",
+"angular2-template-loader": "0.6.2",
+"html-loader": "0.4.5",
+"jasmine": "2.5.3",
+"jasmine-spec-reporter": "3.2.0",
+"karma": "1.5.0",
+"karma-chrome-launcher": "2.0.0",
+"karma-jasmine": "1.1.0",
+"karma-jasmine-html-reporter": "0.2.2",
+"karma-sourcemap-loader": "0.3.7",
+"karma-webpack": "2.0.3",
+"null-loader": "0.1.1",
+"protractor": "5.1.1",
+"ts-loader": "2.0.3",
+"ts-node": "3.0.2"</code></pre><h3 id="2-2-add-unit-testing-conf-files-this-will-add-two-directory-e2e-and-test-config-in-your-root-folder-">2.2 Add Unit Testing conf files (this will add two directory &quot;e2e&quot; and &quot;test-config&quot; in your root folder)</h3>
+<p><code>git clone https://github.com/driftyco/ionic-unit-testing-example.git ./tmp</code></p>
+<p><code>cd ./tmp &amp;&amp; git reset --hard f7d45bc &amp;&amp; cd ../</code></p>
+<p><code>cp -r ./tmp/{e2e,test-config} ./ &amp;&amp; rm -rf ./tmp</code></p>
+<h3 id="2-3-append-this-to-scripts-inside-your-package-json-">2.3 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"test": "karma start ./test-config/karma.conf.js",
+"test-ci": "karma start ./test-config/karma.conf.js --single-run",
+"e2e": "webdriver-manager update --standalone false --gecko false; protractor ./test-config/protractor.conf.js"</code></pre><h3 id="2-4-install-dependencies">2.4 Install dependencies</h3>
+<p><code>npm install</code></p>
+<h3 id="2-5-let-s-add-your-first-test-create-a-new-file-src-app-component-spec-ts-and-add-the-following">2.5 Let&#39;s add your first test. Create a new file &quot;src/app.component.spec.ts&quot; and add the following</h3>
+<pre class="line-numbers"><code class="language-javascript">import { async, TestBed } from '@angular/core/testing';
+import { IonicModule, Platform } from 'ionic-angular';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { MyApp } from './app.component';
+import { PlatformMock } from '../../test-config/mocks-ionic';
+
+describe('MyApp Component', () => {
+  let fixture;
+  let component;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [MyApp],
+      imports: [
+        IonicModule.forRoot(MyApp)
+      ],
+      providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: Platform, useClass: PlatformMock }
+      ]
+    })
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MyApp);
+    component = fixture.componentInstance;
+  });
+
+  it ('should be created', () => {
+    expect(component instanceof MyApp).toBe(true);
+  });
+
+});</code></pre><h3 id="2-6-run-the-tests">2.6 Run the tests</h3>
+<p>You can run Unit Tests with :</p>
+<p><code>npm run test</code></p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657421/1ae06c90-2ffe-11e7-89f8-e2d50e1e4133.png" alt="ionic-unit-testing-success" class="img-responsive"></p>
+<p>If you need a single run execution, use :</p>
+<p><code>npm run test-ci</code></p>
+<p>To run end to end test (e2e), use :</p>
+<p><code>ionic serve</code></p>
+<p>then :</p>
+<p><code>npm run e2e</code></p>
+<h2 id="3-set-up-environment-variables">3. Set up Environment Variables</h2>
+<h3 id="3-1-add-conf-file-and-environments-variables-json-files">3.1 Add conf file and Environments Variables json files</h3>
+<p><code>git clone https://github.com/RomainFallet/ionic-start-guide ./tmp</code></p>
+<p><code>cp -r ./tmp/{env,webpack.envars.js} ./ &amp;&amp; rm -rf ./tmp</code></p>
+<h3 id="3-2-add-this-inside-your-package-json-this-will-add-your-environment-variables-when-you-ll-use-ionic-commands-to-build-or-serve-your-app-">3.2 Add this inside your &quot;package.json&quot;. This will add your environment variables when you&#39;ll use Ionic commands to build or serve your app.</h3>
+<pre class="line-numbers"><code class="language-json">"config": {
+  "ionic_webpack": "./webpack.envars.js"
+}</code></pre><h3 id="3-3-add-this-inside-your-test-config-karma-conf-to-make-your-environment-variables-available-during-your-tests-">3.3 Add this inside your &quot;test-config/karma.conf&quot; to make your environment variables available during your tests.</h3>
+<pre class="line-numbers"><code class="language-javascript">var envarsConfig = require('../webpack.envars.js');</code></pre><h3 id="3-4-to-use-your-env-global-variable-declare-it-on-every-file-you-need-it-with">3.4 To use your ENV global variable, declare it on every file you need it with</h3>
+<pre class="line-numbers"><code class="language-javascript">declare const ENV: any;</code></pre><h3 id="3-5-for-example-you-can-use-it-that-way-in-your-src-app-component-ts-file-you-can-add-more-variables-inside-your-env-prod-json-and-env-dev-json-files-">3.5 For example, you can use it that way in your &quot;src/app.component.ts&quot; file (you can add more variables inside your &quot;env/prod.json&quot; and &quot;env/dev.json&quot; files)</h3>
+<pre class="line-numbers"><code class="language-javascript">import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { HomePage } from '../pages/home/home';
+
+declare const ENV: any;
+
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp {
+  rootPage:any = HomePage;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.styleDefault();
+      splashScreen.hide();
+    });
+
+    console.log('isProduction : ' + ENV.PRODUCTION);
+  }
+}</code></pre><p>If your serve your app now :</p>
+<p><code>ionic serve</code></p>
+<p>You&#39;ll see in your browser console :</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657714/89a3c84c-2fff-11e7-9c01-d8ea6eb3813e.png" alt="ionic-envars-serve" class="img-responsive"></p>
+<h3 id="3-6-enable-programmatically-the-angular-production-mode-by-adding-this-to-your-src-app-main-ts-">3.6 Enable programmatically the Angular production mode by adding this to your &quot;src/app/main.ts&quot;</h3>
+<pre class="line-numbers"><code class="language-javascript">import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+import { enableProdMode } from '@angular/core';
+declare const ENV;
+
+if (ENV.PRODUCTION) { enableProdMode(); }
+
+platformBrowserDynamic().bootstrapModule(AppModule);</code></pre><p>Then use this to build your app in production :</p>
+<p><code>ionic build --prod</code></p>
+<p>This will create static assets of your app inside your &quot;www&quot; directory. Open your &quot;www/index.html&quot; in your browser and you&#39;ll see :</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657788/e4c4906c-2fff-11e7-8c24-a9868e463e01.png" alt="ionic-envars-prod" class="img-responsive"></p>
+<p>We have a cordova error but that&#39;s OK because we are running our app in browser. Now we see that our app is using our production environment variables and that the angular &quot;enableProdMode&quot; warning is gone.</p>
+<p>Our app is fully in production mode !</p>
+<h2 id="4-set-up-automatic-documentation-with-compodoc">4. Set up automatic documentation with compodoc</h2>
+<h3 id="4-1-append-this-to-devdependencies-inside-your-package-json-">4.1 Append this to &quot;devDependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"@compodoc/compodoc": "1.0.0-beta.8"</code></pre><h3 id="4-2-install-compodoc">4.2 Install Compodoc</h3>
+<p><code>npm install</code></p>
+<h3 id="4-3-append-this-to-scripts-inside-your-package-json-">4.3 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"</code></pre><h3 id="4-4-generate-the-docs-docs-will-be-available-inside-your-docs-folder-">4.4 Generate the docs (docs will be available inside your &quot;docs&quot; folder)</h3>
+<p><code>npm run compodoc</code></p>
+<h3 id="4-5-publish-docs-on-github-pages">4.5 Publish docs on Github pages</h3>
+<p>If you use Github for your app source control. You can simply publish it to Github pages. Go to your project settings and set </p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png" alt="ionic-github-publish-docs" class="img-responsive"></p>
 
 
 
