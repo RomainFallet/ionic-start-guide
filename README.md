@@ -336,7 +336,7 @@ app.listen(port, function() {
 
 ![ionic-production-app-server](https://cloud.githubusercontent.com/assets/6952638/25668300/a09c1ec4-3026-11e7-85ce-4a775ac66872.png)
 
-## 6. Automatic deployment
+## 6. Automatic deployment on Heroku
 
 Now that we have a production ready server. We need to deploy it somewhere in the web !
 
@@ -351,3 +351,45 @@ https://www.heroku.com/
 ### 6.3 Link your app with your Github account
 
 ![ionic-heroku-deploy](https://cloud.githubusercontent.com/assets/6952638/25668887/3e98c392-3028-11e7-9b24-6ce0985874f0.png)
+
+### 6.4 Enable automatic deploy
+
+![ionic-heroku-automatic-deploy](https://cloud.githubusercontent.com/assets/6952638/25669407/b55ea59a-3029-11e7-92c3-587c1002da1f.png)
+
+### 6.5 Move "@ionic/app-scripts" from "devDependencies" to "dependencies" inside your "package.json"
+
+```json
+  "dependencies": {
+    "@ionic/app-scripts": "1.3.6",
+```
+
+This will make Heroku able to build our app.
+
+### 6.6 Append this to "scripts" inside your "package.json"
+
+```json
+"heroku-postbuild": "ionic-app-scripts build --prod"
+```
+
+With this, Heroku will build our app in production mode as soon as our dependencies will be installed. We use "ionic-app-scripts" (which is now packaged in our dependencies) instead of "ionic" because the Ionic CLI is only installed on our computer locally.
+
+### 6.7 Add this inside your "package.json"
+
+This will make Heroku use the same environment in which we develop our app.
+
+```json
+"engines": {
+  "node": "7.9.0",
+  "npm": "4.2.0"
+}
+```
+
+### 6.8 Deploy to Heroku
+
+To deploy, you just have to commit some changes. The automatic deploy will do the rest.
+
+`git add . && git commit -m 'Add Heroku deployment' && npm run git-push`
+
+I made it for this repo, you can view it here :
+
+https://ionic-start-guide.herokuapp.com/
