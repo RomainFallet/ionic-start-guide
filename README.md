@@ -230,3 +230,19 @@ This will create static assets of your app inside your "www" directory. Open you
 We have a cordova error but that's OK because we are running our app in browser. Now we see that our app is using our production environment variables and that the angular "enableProdMode" warning is gone.
 
 Our app is fully in production mode !
+
+## 4. Set up automatic documentation with compodoc
+
+### 4.1 Append this to "devDependencies" inside your "package.json"
+
+```json
+"@compodoc/compodoc": "1.0.0-beta.8"
+```
+
+### 4.2 Install Compodoc
+
+`npm install`
+
+### 4.3 Append this to "scripts" inside your "package.json"
+
+`"compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"`
