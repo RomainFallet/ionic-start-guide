@@ -15,7 +15,7 @@
     "compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json",
     "git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push",
     "start": "NODE_ENV=prod node ./server.js",
-    "heroku-postbuild": "ionic-app-scripts build"
+    "heroku-postbuild": "ionic-app-scripts build --prod"
   },
   "config": {
      "ionic_webpack": "./webpack.envars.js"
