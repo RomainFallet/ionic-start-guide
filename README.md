@@ -144,7 +144,7 @@ then :
 
 ### 3.1 Add conf file and Environments Variables json files
 
-`git clone https://github.com/RomainFallet/ionic-start-guide ./tmp`
+`git clone https://github.com/RomainFallet/ionic-workflow-guide ./tmp`
 
 `cp -r ./tmp/{env,webpack.envars.js} ./ && rm -rf ./tmp`
 
