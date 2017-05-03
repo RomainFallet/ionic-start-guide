@@ -21,6 +21,7 @@
      "ionic_webpack": "./webpack.envars.js"
   },
   "dependencies": {
+    "typescript": "~2.2.1",
     "@ionic/app-scripts": "1.3.6",
     "@angular/common": "4.0.2",
     "@angular/compiler": "4.0.2",
@@ -43,7 +44,6 @@
     "compression": "1.6.2"
   },
   "devDependencies": {
-    "typescript": "~2.2.1",
     "@ionic/cli-build-ionic-angular": "0.0.3",
     "@ionic/cli-plugin-cordova": "0.0.9",
     "@types/jasmine": "2.5.41",
