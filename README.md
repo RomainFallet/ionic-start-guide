@@ -28,7 +28,7 @@ https://git-scm.com/downloads
 ### 1.2 Install Npm 4.2.0, Cordova 6.5.0 and Ionic CLI 2.2.3
 `sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3`
 
-### 1.3 Create the project with Ionic 3.1.1 (replace "my-app" by the name you want for your project)
+### 1.3 Create the project with Ionic 3.1.1 (replace "my-app" by the name you want for your folder)
 `git clone https://github.com/driftyco/ionic2-app-base ./my-app`
 
 `cd ./my-app && git reset --hard c252ef8e2e`
@@ -63,7 +63,7 @@ https://git-scm.com/downloads
 "ts-node": "3.0.2"
 ```
 
-### 2.2 Add Unit Testing conf files (this will add two directory "e2e" and "test-config" in your root folder)
+### 2.2 Add Unit Testing conf files (this will add two directories "e2e" and "test-config" in your root folder)
 `git clone https://github.com/driftyco/ionic-unit-testing-example.git ./tmp`
 
 `cd ./tmp && git reset --hard f7d45bc && cd ../`
