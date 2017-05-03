@@ -363,6 +363,7 @@ https://www.heroku.com/
     "@ionic/app-scripts": "1.3.6",
     "typescript": "~2.2.1",
     "@ionic/cli-build-ionic-angular": "0.0.3",
+    "@types/jasmine": "2.5.41",
 ```
 
 This will make Heroku able to build our app.
