@@ -1,4 +1,4 @@
-# Create a full and powerfull worflow with Ionic 3
+# Create a ful and powerfull worflow with Ionic 3
 
 ## (03 May 2017)
 ## Features : Unit Testing, Environment variables, Automatic documentation
