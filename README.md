@@ -122,7 +122,10 @@ describe('MyApp Component', () => {
 
 ### 2.6 Run the tests
 You can run Unit Tests with :
+
 `npm run test`
+
+![ionic-unit-testing-success](https://cloud.githubusercontent.com/assets/6952638/25657421/1ae06c90-2ffe-11e7-89f8-e2d50e1e4133.png)
 
 If you need a single run execution, use :
 
@@ -193,3 +196,36 @@ export class MyApp {
   }
 }
 ```
+
+If your serve your app now :
+
+`ionic serve`
+
+You'll see in your browser console :
+
+![ionic-envars-serve](https://cloud.githubusercontent.com/assets/6952638/25657714/89a3c84c-2fff-11e7-9c01-d8ea6eb3813e.png)
+
+### 3.6 Enable programmatically the Angular production mode by adding this to your "src/app/main.ts"
+
+```javascript
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+import { enableProdMode } from '@angular/core';
+declare const ENV;
+
+if (ENV.PRODUCTION) { enableProdMode(); }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+
+Then use this to build your app in production :
+
+`ionic build --prod`
+
+This will create static assets of your app inside your "www" directory. Open your "www/index.html" in your browser and you'll see :
+
+![ionic-envars-prod](https://cloud.githubusercontent.com/assets/6952638/25657788/e4c4906c-2fff-11e7-8c24-a9868e463e01.png)
+
+We have a cordova error but that's OK because we are running our app in browser. Now we see that our app is using our production environment variables and that the angular "enableProdMode" warning is gone.
+
+Our app is fully in production mode !
