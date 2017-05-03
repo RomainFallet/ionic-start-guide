@@ -1,9 +1,9 @@
 # Create a full and powerful worflow with Ionic 2
 
 ## (03 May 2017)
-## Features : Unit Testing, Environment variables, Automatic documentation
+## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server
 
-Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time.
+Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.
 
 There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.
 
@@ -270,3 +270,11 @@ What you don't want with your docs is that the published version on Github pages
 ```
 
 Then, use `npm run git-push` instead of `git push` to publish your commits. That way, you are sure that your last commits are fully and automatically documented.
+
+## 5. Set up our Production App Server
+
+We saw in the Environment Variables set up that we can build our app in production mode with :
+
+`ionic build --prod`
+
+That packages our production ready app inside the "www" folder. Now we want to serve it.
