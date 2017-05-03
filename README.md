@@ -1,6 +1,7 @@
 # Create a full and powerfull worflow with Ionic 3
 
-## Unit Testing and Environment Variables (03 May 2017)
+## (03 May 2017)
+## Features : Unit Testing, Environment variables, Automatic documentation
 
 Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to maintain through time.
 
