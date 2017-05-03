@@ -41,7 +41,7 @@
     "sw-toolbox": "3.4.0",
     "zone.js": "^0.8.5",
     "express": "4.15.2",
-    "compression": "1.6.2"
+    "compression": "1.6.2",
     
     "@ionic/cli-build-ionic-angular": "0.0.3",
     "@ionic/cli-plugin-cordova": "0.0.9",
