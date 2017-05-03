@@ -252,10 +252,10 @@
                </div>
                <div class="content readme">
                    <div class="content-data">
-<h1 id="create-a-full-and-powerful-worflow-with-ionic-3">Create a full and powerful worflow with Ionic 3</h1>
+<h1 id="create-a-full-and-powerful-worflow-with-ionic-2">Create a full and powerful worflow with Ionic 2</h1>
 <h2 id="-03-may-2017-">(03 May 2017)</h2>
-<h2 id="features-unit-testing-environment-variables-automatic-documentation">Features : Unit Testing, Environment variables, Automatic documentation</h2>
-<p>Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to maintain through time.</p>
+<h2 id="features-unit-testing-environment-variables-automatic-documentation-production-app-server-automatic-deployment">Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment</h2>
+<p>Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.</p>
 <p>There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.</p>
 <p>That&#39;s why I make this repository. You will find here a step by step guide, where nearly all implementations are versions specific and based on Ionic official repositories, so that this guide will still be consistent 3 months later and can easily be updated with Ionic updates.</p>
 <p>====================================================================================</p>
@@ -413,8 +413,75 @@ platformBrowserDynamic().bootstrapModule(AppModule);</code></pre><p>Then use thi
 <p><code>npm run compodoc</code></p>
 <p>Then, open &quot;docs/index.html&quot; in your browser to see your docs.</p>
 <h3 id="4-5-publish-docs-on-github-pages">4.5 Publish docs on Github pages</h3>
-<p>If you&#39;re using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source.</p>
+<p>If you&#39;re using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source to your &quot;docs&quot; folder.</p>
 <p><img src="https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png" alt="ionic-github-publish-docs" class="img-responsive"></p>
+<p>I made it for this repo, you can view it here :<br><a href="https://romainfallet.github.io/ionic-start-guide/">https://romainfallet.github.io/ionic-start-guide/</a></p>
+<h3 id="4-6-automatically-generate-docs-on-push">4.6 Automatically generate docs on push</h3>
+<p>What you don&#39;t want with your docs is that the published version on Github pages does not match the last changes you made. To automatically update your docs when you push somes changes, append this to &quot;scripts&quot; inside your &quot;package.json&quot; :</p>
+<pre class="line-numbers"><code class="language-json">"git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push"</code></pre><p>Then, use <code>npm run git-push</code> instead of <code>git push</code> to publish your commits. That way, you are sure that your last commits are fully and automatically documented.</p>
+<h2 id="5-set-up-our-production-app-server">5. Set up our Production App Server</h2>
+<p>We saw in the Environment Variables set up that we can build our app in production mode with :</p>
+<p><code>ionic build --prod</code></p>
+<p>That packages our production ready app inside the &quot;www&quot; folder. Now we want to serve it.</p>
+<h3 id="5-1-append-this-to-dependencies-inside-your-package-json-">5.1 Append this to &quot;dependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"express": "4.15.2",
+"compression": "1.6.2"</code></pre><h3 id="5-2-install-the-server-dependencies">5.2 Install the server dependencies</h3>
+<p><code>npm install</code></p>
+<h3 id="5-3-create-a-new-server-js-file-in-your-project-root-folder-and-add-this-to-it">5.3 Create a new &quot;server.js&quot; file in your project root folder and add this to it</h3>
+<pre class="line-numbers"><code class="language-javascript">const express = require('express');
+const compression = require('compression');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 8080;
+const ENV = require(path.join(__dirname + '/env/' + (process.env.NODE_ENV ? process.env.NODE_ENV : 'dev') + '.json'));
+const forceSSL = function() {
+  return function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    next();
+  }
+}
+
+// We force HTTPS and GZIP compression on production
+if (ENV.PRODUCTION) {
+    app.use(forceSSL());
+    app.use(compression());
+}
+
+app.use(express.static(__dirname + '/www'));
+
+app.listen(port, function() {
+  console.log('Listening on port ' + port + '. isProduction : ' + ENV.PRODUCTION);
+});</code></pre><h3 id="5-4-then-append-this-to-scripts-inside-our-package-json-">5.4 Then, append this to &quot;scripts&quot; inside our &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"start": "NODE_ENV=prod node ./server.js"</code></pre><h3 id="5-5-our-production-app-server-can-now-be-started-with-this-command">5.5 Our production app server can now be started with this command</h3>
+<p><code>npm run start</code></p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668300/a09c1ec4-3026-11e7-85ce-4a775ac66872.png" alt="ionic-production-app-server" class="img-responsive"></p>
+<h2 id="6-automatic-deployment-on-heroku">6. Automatic deployment on Heroku</h2>
+<p>Now that we have a production ready server. We need to deploy it somewhere in the web !</p>
+<h3 id="6-1-create-a-free-account-on-heroku">6.1 Create a free account on Heroku</h3>
+<p><a href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<h3 id="6-2-create-a-new-app">6.2 Create a new app</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668884/3b90b2c2-3028-11e7-8596-d14a56634b24.png" alt="ionc-heroku-create-app" class="img-responsive"></p>
+<h3 id="6-3-link-your-app-with-your-github-account">6.3 Link your app with your Github account</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668887/3e98c392-3028-11e7-9b24-6ce0985874f0.png" alt="ionic-heroku-deploy" class="img-responsive"></p>
+<h3 id="6-4-enable-automatic-deploy">6.4 Enable automatic deploy</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25669407/b55ea59a-3029-11e7-92c3-587c1002da1f.png" alt="ionic-heroku-automatic-deploy" class="img-responsive"></p>
+<h3 id="6-5-move-ionic-app-scripts-from-devdependencies-to-dependencies-inside-your-package-json-">6.5 Move &quot;@ionic/app-scripts&quot; from &quot;devDependencies&quot; to &quot;dependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">  "dependencies": {
+    "@ionic/app-scripts": "1.3.6",</code></pre><p>This will make Heroku able to build our app.</p>
+<h3 id="6-6-append-this-to-scripts-inside-your-package-json-">6.6 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">"heroku-postbuild": "ionic-app-scripts build --prod"</code></pre><p>With this, Heroku will build our app in production mode as soon as our dependencies will be installed. We use &quot;ionic-app-scripts&quot; (which is now packaged in our dependencies) instead of &quot;ionic&quot; because the Ionic CLI is only installed on our computer locally.</p>
+<h3 id="6-7-add-this-inside-your-package-json-">6.7 Add this inside your &quot;package.json&quot;</h3>
+<p>This will make Heroku use the same environment in which we develop our app.</p>
+<pre class="line-numbers"><code class="language-json">"engines": {
+  "node": "7.9.0",
+  "npm": "4.2.0"
+}</code></pre><h3 id="6-8-deploy-to-heroku">6.8 Deploy to Heroku</h3>
+<p>To deploy, you just have to commit some changes. The automatic deploy will do the rest.</p>
+<p><code>git add . &amp;&amp; git commit -m &#39;Add Heroku deployment&#39; &amp;&amp; npm run git-push</code></p>
+<p>I made it for this repo, you can view it here :</p>
+<p><a href="https://ionic-start-guide.herokuapp.com/">https://ionic-start-guide.herokuapp.com/</a></p>
 
 
 
