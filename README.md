@@ -3,7 +3,7 @@
 ## (03 May 2017)
 ## Features : Unit Testing, Environment variables, Automatic documentation
 
-Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to maintain through time.
+Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes Unit Testing and Environment Variables, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time.
 
 There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.
 
