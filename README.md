@@ -245,4 +245,6 @@ Our app is fully in production mode !
 
 ### 4.3 Append this to "scripts" inside your "package.json"
 
-`"compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"`
+```json
+"compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"
+```
