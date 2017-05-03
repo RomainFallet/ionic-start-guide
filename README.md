@@ -253,6 +253,8 @@ Our app is fully in production mode !
 
 `npm run compodoc`
 
+Then, open "docs/index.html" in your browser to see your docs.
+
 ### 4.5 Publish docs on Github pages
 
 If you're using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source.
