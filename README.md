@@ -356,11 +356,13 @@ https://www.heroku.com/
 
 ![ionic-heroku-automatic-deploy](https://cloud.githubusercontent.com/assets/6952638/25669407/b55ea59a-3029-11e7-92c3-587c1002da1f.png)
 
-### 6.5 Move "@ionic/app-scripts" from "devDependencies" to "dependencies" inside your "package.json"
+### 6.5 Move "typescript", "@ionic/app-scripts" and "@ionic/cli-build-ionic-angular" from "devDependencies" to "dependencies" inside your "package.json"
 
 ```json
   "dependencies": {
+    "typescript": "~2.2.1",
     "@ionic/app-scripts": "1.3.6",
+    "@ionic/cli-build-ionic-angular": "0.0.3",
 ```
 
 This will make Heroku able to build our app.
