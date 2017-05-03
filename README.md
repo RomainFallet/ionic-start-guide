@@ -260,3 +260,13 @@ Then, open "docs/index.html" in your browser to see your docs.
 If you're using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source.
 
 ![ionic-github-publish-docs](https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png)
+
+### 4.6 Automatically generate docs on push
+
+What you don't want with your docs is that the published version on Github pages does not match the last changes you made. To automatically update your docs when you push somes changes, append this to "scripts" inside your "package.json" :
+
+```json
+"git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push"
+```
+
+Then, use `npm run git-push` instead of `git push` to publish your commits. That way, you are sure that your last commits are fully and automatically documented.
