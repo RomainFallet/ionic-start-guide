@@ -360,8 +360,8 @@ https://www.heroku.com/
 
 ```json
   "dependencies": {
-    "typescript": "~2.2.1",
     "@ionic/app-scripts": "1.3.6",
+    "typescript": "~2.2.1",
     "@ionic/cli-build-ionic-angular": "0.0.3",
 ```
 
