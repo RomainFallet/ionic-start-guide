@@ -40,7 +40,7 @@ https://git-scm.com/downloads
 
 ## 2. Set up Unit Testing
 
-### 2.1 Append this to "devDependencies" inside your package.json :
+### 2.1 Append this to "devDependencies" inside your package.json
 ```json
 "@ionic/cli-build-ionic-angular": "0.0.3",
 "@ionic/cli-plugin-cordova": "0.0.9",
@@ -62,19 +62,79 @@ https://git-scm.com/downloads
 "ts-node": "3.0.2"
 ```
 
-### 2.2 Add Unit Testing conf files (this will add two directory "e2e" and "test-config")
+### 2.2 Add Unit Testing conf files (this will add two directory "e2e" and "test-config" in your root folder)
 `git clone https://github.com/driftyco/ionic-unit-testing-example.git ./tmp`
 
 `cd ./tmp && git reset --hard f7d45bc && cd ../`
 
 `cp -r ./tmp/{e2e,test-config} ./ && rm -rf ./tmp`
 
-### 2.3 Append this to "scripts" inside your package.json
+### 2.3 Append this to "scripts" inside your "package.json"
 ```json
 "test": "karma start ./test-config/karma.conf.js",
 "test-ci": "karma start ./test-config/karma.conf.js --single-run",
 "e2e": "webdriver-manager update --standalone false --gecko false; protractor ./test-config/protractor.conf.js"
 ```
+
+### 2.4 Install dependencies
+`npm install`
+
+### 2.5 Let's add your first test. Create a new file "src/app.component.spec.ts" and add the following
+```javascript
+import { async, TestBed } from '@angular/core/testing';
+import { IonicModule, Platform } from 'ionic-angular';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { MyApp } from './app.component';
+import { PlatformMock } from '../../test-config/mocks-ionic';
+
+describe('MyApp Component', () => {
+  let fixture;
+  let component;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [MyApp],
+      imports: [
+        IonicModule.forRoot(MyApp)
+      ],
+      providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: Platform, useClass: PlatformMock }
+      ]
+    })
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MyApp);
+    component = fixture.componentInstance;
+  });
+
+  it ('should be created', () => {
+    expect(component instanceof MyApp).toBe(true);
+  });
+
+});
+```
+
+### 2.6 Run the tests
+You can run Unit Tests with :
+`npm run test`
+
+If you need a single run execution, use :
+
+`npm run test-ci`
+
+To run end to end test (e2e), use :
+
+`ionic serve`
+
+then :
+
+`npm run e2e`
 
 ## 3. Set up Environment Variables
 
@@ -84,14 +144,52 @@ https://git-scm.com/downloads
 
 `cp -r ./tmp/{env,webpack.envars.js} ./ && rm -rf ./tmp`
 
-### 3.2 Add this inside your package.json. This will add your environment variables when you'll use Ionic commands to build or serve your app.
+### 3.2 Add this inside your "package.json". This will add your environment variables when you'll use Ionic commands to build or serve your app.
+
 ```json
 "config": {
   "ionic_webpack": "./webpack.envars.js"
 }
 ```
 
-### 3.3 Add this inside your test-config/karma.conf to make your environment variables available during your tests.
+### 3.3 Add this inside your "test-config/karma.conf" to make your environment variables available during your tests.
+
 ```javascript
 var envarsConfig = require('../webpack.envars.js');
+```
+### 3.4 To use your ENV global variable, declare it on every file you need it with
+
+```javascript
+declare const ENV: any;
+```
+
+### 3.5 For example, you can use it that way in your "src/app.component.ts" file (you can add more variables inside your "env/prod.json" and "env/dev.json" files)
+
+```javascript
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { HomePage } from '../pages/home/home';
+
+declare const ENV: any;
+
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp {
+  rootPage:any = HomePage;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.styleDefault();
+      splashScreen.hide();
+    });
+    
+    console.log('isProduction : ' + ENV.PRODUCTION);
+  }
+}
 ```
