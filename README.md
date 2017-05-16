@@ -3,7 +3,7 @@
 # Create a full and powerful worflow with Ionic
 
 ## (16 May 2017, Ionic 3.2.1)
-## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment
+## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment, Dependencies version check
 
 Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.
 
@@ -438,3 +438,25 @@ To deploy, you just have to commit some changes. The automatic deploy will do th
 I made it for this repo, you can view it here :
 
 https://ionic-workflow-guide.herokuapp.com/
+
+## 7. Set up dependencies version check with npm-check
+
+### 7.1 Append this to "devDependencies" inside your "package.json"
+
+```json
+"npm-check": "5.4.4"
+```
+
+### 7.2 Install npm-check
+
+`npm install`
+
+### 7.3 Append this to "scripts" inside your "package.json"
+
+```json
+"check": "node ./node_modules/npm-check/bin/cli.js -u"
+```
+
+### 4.4 Check your dependencies version and update it if necessary
+
+`npm run check`
