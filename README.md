@@ -27,10 +27,10 @@ https://nodejs.org/download/release/v7.9.0/
 
 https://git-scm.com/downloads
 
-### 1.2 Install Npm 4.2.0, Cordova 6.5.0 and Ionic CLI 2.2.3
-`sudo npm install -g npm@4.2.0 cordova@6.5.0 ionic@2.2.3`
+### 1.2 Install Npm 4.6.1, Cordova 7.0.1 and Ionic CLI 3.0.0
+`sudo npm install -g npm@4.6.1 cordova@7.0.1 ionic@3.0.0`
 
-### 1.3 Create the project with Ionic 3.1.1 (replace "my-app" by the name you want for your folder)
+### 1.3 Create the project with Ionic 3.2.1 (replace "my-app" by the name you want for your folder)
 `git clone https://github.com/driftyco/ionic2-app-base ./my-app`
 
 `cd ./my-app && git reset --hard 49e70da`
@@ -90,22 +90,22 @@ export class AppComponent {
 ### 2.1 Append this to "devDependencies" inside your package.json
 ```json
 "@ionic/cli-plugin-ionic-angular": "1.0.0",
-"@types/jasmine": "^2.5.41",
-"@types/node": "^7.0.8",
-"angular2-template-loader": "^0.6.2",
-"html-loader": "^0.4.5",
-"jasmine": "^2.5.3",
-"jasmine-spec-reporter": "^4.1.0",
-"karma": "^1.5.0",
-"karma-chrome-launcher": "^2.0.0",
-"karma-jasmine": "^1.1.0",
-"karma-jasmine-html-reporter": "^0.2.2",
-"karma-sourcemap-loader": "^0.3.7",
-"karma-webpack": "^2.0.3",
-"null-loader": "^0.1.1",
-"protractor": "^5.1.1",
-"ts-loader": "^2.0.3",
-"ts-node": "^3.0.2"
+"@types/jasmine": "2.5.41",
+"@types/node": "7.0.8",
+"angular2-template-loader": "0.6.2",
+"html-loader": "0.4.5",
+"jasmine": "2.5.3",
+"jasmine-spec-reporter": "4.1.0",
+"karma": "1.5.0",
+"karma-chrome-launcher": "2.0.0",
+"karma-jasmine": "1.1.0",
+"karma-jasmine-html-reporter": "0.2.2",
+"karma-sourcemap-loader": "0.3.7",
+"karma-webpack": "2.0.3",
+"null-loader": "0.1.1",
+"protractor": "5.1.1",
+"ts-loader": "2.0.3",
+"ts-node": "3.0.2"
 ```
 
 ### 2.2 Add Unit Testing conf files (this will add two directories "e2e" and "test-config" in your root folder)
@@ -210,30 +210,18 @@ declare const ENV: any;
 
 ```javascript
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
 
 declare const ENV: any;
 
 @Component({
-  templateUrl: 'app.html'
+    templateUrl: 'app.component.html'
 })
-export class MyApp {
-  rootPage:any = HomePage;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
+export class AppComponent {
+    rootPage: any;
     
-    console.log('isProduction : ' + ENV.PRODUCTION);
-  }
+    constructor() {
+        console.log('isProduction : ' + ENV.PRODUCTION);
+    }
 }
 ```
 
