@@ -2,7 +2,7 @@
 
 # Create a full and powerful worflow with Ionic
 
-## (03 May 2017)
+## (16 May 2017, Ionic 3.2.1)
 ## Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment
 
 Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.
@@ -33,13 +33,57 @@ https://git-scm.com/downloads
 ### 1.3 Create the project with Ionic 3.1.1 (replace "my-app" by the name you want for your folder)
 `git clone https://github.com/driftyco/ionic2-app-base ./my-app`
 
-`cd ./my-app && git reset --hard c252ef8e2e`
+`cd ./my-app && git reset --hard 49e70da`
 
-`git clone https://github.com/driftyco/ionic2-starter-blank ./tmp`
+### 1.4 Create the file 'src/app/app.module.ts' with this
 
-`cd ./tmp && git reset --hard d85ded4 && cd ../`
+```javascript
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-`cp -r ./tmp/* ./ && rm -rf ./tmp`
+import { AppComponent } from './app.component';
+
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(AppComponent)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        AppComponent
+    ],
+    providers: [
+        {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ]
+})
+export class AppModule {}
+```
+
+### 1.5 Create the file 'src/app/app.component.ts' with this
+
+```javascript
+import { Component } from '@angular/core';
+
+@Component({
+    templateUrl: 'app.component.html'
+})
+export class AppComponent {
+    rootPage: any;
+    
+    constructor() {
+    }
+}
+```
+
+### 1.6 Create the file 'src/app/app.component.html' with this
+
+```html
+<ion-nav [root]="rootPage"></ion-nav>
+```
 
 ## 2. Set up Unit Testing
 
