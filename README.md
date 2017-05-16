@@ -89,32 +89,33 @@ export class AppComponent {
 
 ### 2.1 Append this to "devDependencies" inside your package.json
 ```json
-"@ionic/cli-build-ionic-angular": "0.0.3",
-"@ionic/cli-plugin-cordova": "0.0.9",
-"@types/jasmine": "2.5.41",
-"@types/node": "7.0.8",
-"angular2-template-loader": "0.6.2",
-"html-loader": "0.4.5",
-"jasmine": "2.5.3",
-"jasmine-spec-reporter": "3.2.0",
-"karma": "1.5.0",
-"karma-chrome-launcher": "2.0.0",
-"karma-jasmine": "1.1.0",
-"karma-jasmine-html-reporter": "0.2.2",
-"karma-sourcemap-loader": "0.3.7",
-"karma-webpack": "2.0.3",
-"null-loader": "0.1.1",
-"protractor": "5.1.1",
-"ts-loader": "2.0.3",
-"ts-node": "3.0.2"
+"@ionic/cli-plugin-ionic-angular": "1.0.0",
+"@types/jasmine": "^2.5.41",
+"@types/node": "^7.0.8",
+"angular2-template-loader": "^0.6.2",
+"html-loader": "^0.4.5",
+"jasmine": "^2.5.3",
+"jasmine-spec-reporter": "^4.1.0",
+"karma": "^1.5.0",
+"karma-chrome-launcher": "^2.0.0",
+"karma-jasmine": "^1.1.0",
+"karma-jasmine-html-reporter": "^0.2.2",
+"karma-sourcemap-loader": "^0.3.7",
+"karma-webpack": "^2.0.3",
+"null-loader": "^0.1.1",
+"protractor": "^5.1.1",
+"ts-loader": "^2.0.3",
+"ts-node": "^3.0.2"
 ```
 
 ### 2.2 Add Unit Testing conf files (this will add two directories "e2e" and "test-config" in your root folder)
 `git clone https://github.com/driftyco/ionic-unit-testing-example.git ./tmp`
 
-`cd ./tmp && git reset --hard f7d45bc && cd ../`
+`cd ./tmp && git reset --hard 7b1f2a6 && cd ../`
 
-`cp -r ./tmp/{e2e,test-config} ./ && rm -rf ./tmp`
+`cp -r ./tmp/test-config ./`
+
+`mkdir e2e && cp -r ./tmp/e2e/tsconfig.json ./e2e && rm -rf ./tmp`
 
 ### 2.3 Append this to "scripts" inside your "package.json"
 ```json
@@ -129,41 +130,33 @@ export class AppComponent {
 ### 2.5 Let's add your first test. Create a new file "src/app.component.spec.ts" and add the following
 ```javascript
 import { async, TestBed } from '@angular/core/testing';
-import { IonicModule, Platform } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppComponent } from './app.component';
 
-import { MyApp } from './app.component';
-import { PlatformMock } from '../../test-config/mocks-ionic';
+describe('AppComponent', () => {
+    let fixture;
+    let component;
 
-describe('MyApp Component', () => {
-  let fixture;
-  let component;
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ AppComponent ],
+            imports: [
+                IonicModule.forRoot(AppComponent)
+            ],
+            providers: [
+            ]
+        })
+    }));
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [MyApp],
-      imports: [
-        IonicModule.forRoot(MyApp)
-      ],
-      providers: [
-        StatusBar,
-        SplashScreen,
-        { provide: Platform, useClass: PlatformMock }
-      ]
-    })
-  }));
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MyApp);
-    component = fixture.componentInstance;
-  });
-
-  it ('should be created', () => {
-    expect(component instanceof MyApp).toBe(true);
-  });
-
+    it ('should create a valid instance of AppComponent', () => {
+        expect(component instanceof AppComponent).toBe(true);
+    });
 });
 ```
 
