@@ -85,11 +85,17 @@ export class AppComponent {
 <ion-nav [root]="rootPage"></ion-nav>
 ```
 
+### 1.7 Append this to "devDependencies" inside your package.json
+
+```json
+"@ionic/cli-plugin-cordova": "1.0.0",
+"@ionic/cli-plugin-ionic-angular": "1.0.0"
+```
+
 ## 2. Set up Unit Testing
 
 ### 2.1 Append this to "devDependencies" inside your package.json
 ```json
-"@ionic/cli-plugin-ionic-angular": "1.0.0",
 "@types/jasmine": "2.5.41",
 "@types/node": "7.0.8",
 "angular2-template-loader": "0.6.2",
@@ -246,9 +252,14 @@ if (ENV.PRODUCTION) { enableProdMode(); }
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-Then use this to build your app in production :
+### 3.7 Append this to "scripts" inside your "package.json"
 
-`ionic build --prod`
+```json
+"build": "ionic-app-scripts build --prod"
+```
+### 3.8 Then use this to build your app in production :
+
+`npm run build`
 
 This will create static assets of your app inside your "www" directory. Open your "www/index.html" in your browser and you'll see :
 
@@ -263,7 +274,7 @@ Our app is fully in production mode !
 ### 4.1 Append this to "devDependencies" inside your "package.json"
 
 ```json
-"@compodoc/compodoc": "1.0.0-beta.8"
+"@compodoc/compodoc": "1.0.0-beta.9"
 ```
 
 ### 4.2 Install Compodoc
@@ -296,7 +307,7 @@ https://romainfallet.github.io/ionic-workflow-guide/
 What you don't want with your docs is that the published version on Github pages does not match the last changes you made. To automatically update your docs when you push somes changes, append this to "scripts" inside your "package.json" :
 
 ```json
-"git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push"
+"git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push -u origin master"
 ```
 
 Then, use `npm run git-push` instead of `git push` to publish your commits. That way, you are sure that your last commits are fully and automatically documented.
@@ -305,7 +316,7 @@ Then, use `npm run git-push` instead of `git push` to publish your commits. That
 
 We saw in the Environment Variables set up that we can build our app in production mode with :
 
-`ionic build --prod`
+`npm run build`
 
 That packages our production ready app inside the "www" folder. Now we want to serve it.
 
@@ -345,6 +356,11 @@ if (ENV.PRODUCTION) {
 }
 
 app.use(express.static(__dirname + '/www'));
+
+// We redirect all GET requests to our 'index.html' to let Ionic handle the rooting
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/www/index.html'));
+});
 
 app.listen(port, function() {
   console.log('Listening on port ' + port + '. isProduction : ' + ENV.PRODUCTION);
@@ -387,9 +403,8 @@ https://www.heroku.com/
 
 ```json
   "dependencies": {
-    "@ionic/app-scripts": "1.3.6",
+    "@ionic/app-scripts": "1.3.7",
     "typescript": "~2.2.1",
-    "@ionic/cli-build-ionic-angular": "0.0.3",
     "@types/jasmine": "2.5.41",
 ```
 
@@ -398,7 +413,7 @@ This will make Heroku able to build our app.
 ### 6.6 Append this to "scripts" inside your "package.json"
 
 ```json
-"heroku-postbuild": "ionic-app-scripts build --prod"
+"heroku-postbuild": "npm run build"
 ```
 
 With this, Heroku will build our app in production mode as soon as our dependencies will be installed. We use "ionic-app-scripts" (which is now packaged in our dependencies) instead of "ionic" because the Ionic CLI is only installed on our computer locally.
