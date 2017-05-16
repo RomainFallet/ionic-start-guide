@@ -22,8 +22,8 @@ You'll find next a step by step guide, but if you want to make this quick, you c
 ## 1. The basics
 I'm specifying Git, Node, Npm, Cordova and Ionic-CLI version in case a new version of these packages would break something or add an error/warning in the future. This will ensure that you'll follow this guide in the exact same conditions, but it may work with different versions of these.
 
-### 1.1 Install Node 7.9.0 and Git 2.12.2
-https://nodejs.org/download/release/v7.9.0/
+### 1.1 Install Node 7.10.0 and Git 2.13.0
+https://nodejs.org/download/release/v7.10.0/
 
 https://git-scm.com/downloads
 
