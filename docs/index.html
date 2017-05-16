@@ -1,0 +1,550 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ionic-app-base documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ionic-app-base documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./index.html">ionic-app-base documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a  href="./overview.html" 
+                                        
+                                         href="./overview.html" 
+                                        
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/AppModule.html" >AppModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="./components/AppComponent.html" >AppComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/PlatformMock.html" >PlatformMock</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./index.html">ionic-app-base documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a  href="./overview.html" 
+                                               
+                                                href="./overview.html" 
+                                               
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/AppModule.html" >AppModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="./components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/PlatformMock.html" >PlatformMock</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content readme">
+                   <div class="content-data">
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25675179/d46a4700-303d-11e7-8df9-b4d8f0e89741.png" alt="ionic-workflow" class="img-responsive"></p>
+<h1 id="create-a-full-and-powerful-worflow-with-ionic">Create a full and powerful worflow with Ionic</h1>
+<h2 id="-16-may-2017-ionic-3-2-1-">(16 May 2017, Ionic 3.2.1)</h2>
+<h2 id="features-unit-testing-environment-variables-automatic-documentation-production-app-server-automatic-deployment-dependencies-version-check">Features : Unit Testing, Environment variables, Automatic documentation, Production App Server, Automatic deployment, Dependencies version check</h2>
+<p>Many code chunks and tutorials are available on the web to configure a Ionic workflow that includes features such as Unit Testing, Environment Variables and others, but most of it are obsolete or depends on specific dependencies, version or configuration that is hard to put together or maintain through time and Ionic core evolution.</p>
+<p>There is also tons of starters git repositories but nobody explain how to build their solution from scratch, so that people can understand and implement it in an existing project.</p>
+<p>That&#39;s why I make this repository. You will find here a step by step guide, where nearly all implementations are versions specific and based on Ionic official repositories, so that this guide will still be consistent 3 months later and can easily be updated with Ionic updates.</p>
+<p>====================================================================================</p>
+<h2 id="quickstart">Quickstart</h2>
+<p>You&#39;ll find next a step by step guide, but if you want to make this quick, you can simply clone this repository. It contains the exact code that will be created by following the guide.</p>
+<p><code>git clone https://github.com/RomainFallet/ionic-workflow-guide/</code></p>
+<p>====================================================================================</p>
+<h2 id="1-the-basics">1. The basics</h2>
+<p>I&#39;m specifying Git, Node, Npm, Cordova and Ionic-CLI version in case a new version of these packages would break something or add an error/warning in the future. This will ensure that you&#39;ll follow this guide in the exact same conditions, but it may work with different versions of these.</p>
+<h3 id="1-1-install-node-7-10-0-and-git-2-13-0">1.1 Install Node 7.10.0 and Git 2.13.0</h3>
+<p><a href="https://nodejs.org/download/release/v7.10.0/">https://nodejs.org/download/release/v7.10.0/</a></p>
+<p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<h3 id="1-2-install-npm-4-6-1-cordova-7-0-1-and-ionic-cli-3-0-0">1.2 Install Npm 4.6.1, Cordova 7.0.1 and Ionic CLI 3.0.0</h3>
+<p><code>sudo npm install -g npm@4.6.1 cordova@7.0.1 ionic@3.0.0</code></p>
+<h3 id="1-3-create-the-project-with-ionic-3-2-1-replace-my-app-by-the-name-you-want-for-your-folder-">1.3 Create the project with Ionic 3.2.1 (replace &quot;my-app&quot; by the name you want for your folder)</h3>
+<p><code>git clone https://github.com/driftyco/ionic2-app-base ./my-app</code></p>
+<p><code>cd ./my-app &amp;&amp; git reset --hard 49e70da</code></p>
+<h3 id="1-4-create-the-file-src-app-app-module-ts-with-this">1.4 Create the file &#39;src/app/app.module.ts&#39; with this</h3>
+<pre class="line-numbers"><code class="language-javascript">import { BrowserModule } from &#39;&#40;angular/platform-browser&#39;;
+import { ErrorHandler, NgModule } from &#39;&#40;angular/core&#39;;
+import { IonicApp, IonicErrorHandler, IonicModule } from &#39;ionic-angular&#39;;
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+&#40;NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(AppComponent)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        AppComponent
+    ],
+    providers: [
+        {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ]
+})
+export class AppModule {}</code></pre><h3 id="1-5-create-the-file-src-app-app-component-ts-with-this">1.5 Create the file &#39;src/app/app.component.ts&#39; with this</h3>
+<pre class="line-numbers"><code class="language-javascript">import { Component } from &#39;&#40;angular/core&#39;;
+
+&#40;Component({
+    templateUrl: &#39;app.component.html&#39;
+})
+export class AppComponent {
+    rootPage: any;
+
+    constructor() {
+    }
+}</code></pre><h3 id="1-6-create-the-file-src-app-app-component-html-with-this">1.6 Create the file &#39;src/app/app.component.html&#39; with this</h3>
+<pre class="line-numbers"><code class="language-html">&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;</code></pre><h3 id="1-7-append-this-to-devdependencies-inside-your-package-json">1.7 Append this to &quot;devDependencies&quot; inside your package.json</h3>
+<pre class="line-numbers"><code class="language-json">&quot;&#40;ionic/cli-plugin-cordova&quot;: &quot;1.0.0&quot;,
+&quot;&#40;ionic/cli-plugin-ionic-angular&quot;: &quot;1.0.0&quot;</code></pre><h2 id="2-set-up-unit-testing">2. Set up Unit Testing</h2>
+<h3 id="2-1-append-this-to-devdependencies-inside-your-package-json">2.1 Append this to &quot;devDependencies&quot; inside your package.json</h3>
+<pre class="line-numbers"><code class="language-json">&quot;&#40;types/jasmine&quot;: &quot;2.5.41&quot;,
+&quot;&#40;types/node&quot;: &quot;7.0.8&quot;,
+&quot;angular2-template-loader&quot;: &quot;0.6.2&quot;,
+&quot;html-loader&quot;: &quot;0.4.5&quot;,
+&quot;jasmine&quot;: &quot;2.5.3&quot;,
+&quot;jasmine-spec-reporter&quot;: &quot;4.1.0&quot;,
+&quot;karma&quot;: &quot;1.5.0&quot;,
+&quot;karma-chrome-launcher&quot;: &quot;2.0.0&quot;,
+&quot;karma-jasmine&quot;: &quot;1.1.0&quot;,
+&quot;karma-jasmine-html-reporter&quot;: &quot;0.2.2&quot;,
+&quot;karma-sourcemap-loader&quot;: &quot;0.3.7&quot;,
+&quot;karma-webpack&quot;: &quot;2.0.3&quot;,
+&quot;null-loader&quot;: &quot;0.1.1&quot;,
+&quot;protractor&quot;: &quot;5.1.1&quot;,
+&quot;ts-loader&quot;: &quot;2.0.3&quot;,
+&quot;ts-node&quot;: &quot;3.0.2&quot;</code></pre><h3 id="2-2-add-unit-testing-conf-files-this-will-add-two-directories-e2e-and-test-config-in-your-root-folder-">2.2 Add Unit Testing conf files (this will add two directories &quot;e2e&quot; and &quot;test-config&quot; in your root folder)</h3>
+<p><code>git clone https://github.com/driftyco/ionic-unit-testing-example.git ./tmp</code></p>
+<p><code>cd ./tmp &amp;&amp; git reset --hard 7b1f2a6 &amp;&amp; cd ../</code></p>
+<p><code>cp -r ./tmp/test-config ./</code></p>
+<p><code>mkdir e2e &amp;&amp; cp -r ./tmp/e2e/tsconfig.json ./e2e &amp;&amp; rm -rf ./tmp</code></p>
+<h3 id="2-3-append-this-to-scripts-inside-your-package-json-">2.3 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;test&quot;: &quot;karma start ./test-config/karma.conf.js&quot;,
+&quot;test-ci&quot;: &quot;karma start ./test-config/karma.conf.js --single-run&quot;,
+&quot;e2e&quot;: &quot;webdriver-manager update --standalone false --gecko false; protractor ./test-config/protractor.conf.js&quot;</code></pre><h3 id="2-4-install-dependencies">2.4 Install dependencies</h3>
+<p><code>npm install</code></p>
+<h3 id="2-5-let-s-add-your-first-test-create-a-new-file-src-app-component-spec-ts-and-add-the-following">2.5 Let&#39;s add your first test. Create a new file &quot;src/app.component.spec.ts&quot; and add the following</h3>
+<pre class="line-numbers"><code class="language-javascript">import { async, TestBed } from &#39;&#40;angular/core/testing&#39;;
+import { IonicModule } from &#39;ionic-angular&#39;;
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+describe(&#39;AppComponent&#39;, () =&gt; {
+    let fixture;
+    let component;
+
+    beforeEach(async(() =&gt; {
+        TestBed.configureTestingModule({
+            declarations: [ AppComponent ],
+            imports: [
+                IonicModule.forRoot(AppComponent)
+            ],
+            providers: [
+            ]
+        })
+    }));
+
+    beforeEach(() =&gt; {
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+    });
+
+    it (&#39;should create a valid instance of AppComponent&#39;, () =&gt; {
+        expect(component instanceof AppComponent).toBe(true);
+    });
+});</code></pre><h3 id="2-6-run-the-tests">2.6 Run the tests</h3>
+<p>You can run Unit Tests with :</p>
+<p><code>npm run test</code></p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657421/1ae06c90-2ffe-11e7-89f8-e2d50e1e4133.png" alt="ionic-unit-testing-success" class="img-responsive"></p>
+<p>If you need a single run execution, use :</p>
+<p><code>npm run test-ci</code></p>
+<p>To run end to end test (e2e), use :</p>
+<p><code>ionic serve</code></p>
+<p>then :</p>
+<p><code>npm run e2e</code></p>
+<h2 id="3-set-up-environment-variables">3. Set up Environment Variables</h2>
+<h3 id="3-1-add-conf-file-and-environments-variables-json-files">3.1 Add conf file and Environments Variables json files</h3>
+<p><code>git clone https://github.com/RomainFallet/ionic-workflow-guide ./tmp</code></p>
+<p><code>cp -r ./tmp/{env,webpack.envars.js} ./ &amp;&amp; rm -rf ./tmp</code></p>
+<h3 id="3-2-add-this-inside-your-package-json-this-will-add-your-environment-variables-when-you-ll-use-ionic-commands-to-build-or-serve-your-app-">3.2 Add this inside your &quot;package.json&quot;. This will add your environment variables when you&#39;ll use Ionic commands to build or serve your app.</h3>
+<pre class="line-numbers"><code class="language-json">&quot;config&quot;: {
+  &quot;ionic_webpack&quot;: &quot;./webpack.envars.js&quot;
+}</code></pre><h3 id="3-3-add-this-inside-your-test-config-karma-conf-to-make-your-environment-variables-available-during-your-tests-">3.3 Add this inside your &quot;test-config/karma.conf&quot; to make your environment variables available during your tests.</h3>
+<pre class="line-numbers"><code class="language-javascript">var envarsConfig = require(&#39;../webpack.envars.js&#39;);</code></pre><h3 id="3-4-to-use-your-env-global-variable-declare-it-on-every-file-you-need-it-with">3.4 To use your ENV global variable, declare it on every file you need it with</h3>
+<pre class="line-numbers"><code class="language-javascript">declare const ENV: any;</code></pre><h3 id="3-5-for-example-you-can-use-it-that-way-in-your-src-app-component-ts-file-you-can-add-more-variables-inside-your-env-prod-json-and-env-dev-json-files-">3.5 For example, you can use it that way in your &quot;src/app.component.ts&quot; file (you can add more variables inside your &quot;env/prod.json&quot; and &quot;env/dev.json&quot; files)</h3>
+<pre class="line-numbers"><code class="language-javascript">import { Component } from &#39;&#40;angular/core&#39;;
+
+declare const ENV: any;
+
+&#40;Component({
+    templateUrl: &#39;app.component.html&#39;
+})
+export class AppComponent {
+    rootPage: any;
+
+    constructor() {
+        console.log(&#39;isProduction : &#39; + ENV.PRODUCTION);
+    }
+}</code></pre><p>If your serve your app now :</p>
+<p><code>ionic serve</code></p>
+<p>You&#39;ll see in your browser console :</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657714/89a3c84c-2fff-11e7-9c01-d8ea6eb3813e.png" alt="ionic-envars-serve" class="img-responsive"></p>
+<h3 id="3-6-enable-programmatically-the-angular-production-mode-by-adding-this-to-your-src-app-main-ts-">3.6 Enable programmatically the Angular production mode by adding this to your &quot;src/app/main.ts&quot;</h3>
+<pre class="line-numbers"><code class="language-javascript">import { platformBrowserDynamic } from &#39;&#40;angular/platform-browser-dynamic&#39;;
+import { AppModule } from &#39;./app.module&#39;;
+import { enableProdMode } from &#39;&#40;angular/core&#39;;
+declare const ENV;
+
+if (ENV.PRODUCTION) { enableProdMode(); }
+
+platformBrowserDynamic().bootstrapModule(AppModule);</code></pre><h3 id="3-7-append-this-to-scripts-inside-your-package-json-">3.7 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;build&quot;: &quot;ionic-app-scripts build --prod&quot;</code></pre><h3 id="3-8-then-use-this-to-build-your-app-in-production-">3.8 Then use this to build your app in production :</h3>
+<p><code>npm run build</code></p>
+<p>This will create static assets of your app inside your &quot;www&quot; directory. Open your &quot;www/index.html&quot; in your browser and you&#39;ll see :</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25657788/e4c4906c-2fff-11e7-8c24-a9868e463e01.png" alt="ionic-envars-prod" class="img-responsive"></p>
+<p>We have a cordova error but that&#39;s OK because we are running our app in browser. Now we see that our app is using our production environment variables and that the angular &quot;enableProdMode&quot; warning is gone.</p>
+<p>Our app is fully in production mode !</p>
+<h2 id="4-set-up-automatic-documentation-with-compodoc">4. Set up automatic documentation with compodoc</h2>
+<h3 id="4-1-append-this-to-devdependencies-inside-your-package-json-">4.1 Append this to &quot;devDependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;&#40;compodoc/compodoc&quot;: &quot;1.0.0-beta.9&quot;</code></pre><h3 id="4-2-install-compodoc">4.2 Install Compodoc</h3>
+<p><code>npm install</code></p>
+<h3 id="4-3-append-this-to-scripts-inside-your-package-json-">4.3 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;compodoc&quot;: &quot;./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json&quot;</code></pre><h3 id="4-4-generate-the-docs-docs-will-be-available-inside-your-docs-folder-">4.4 Generate the docs (docs will be available inside your &quot;docs&quot; folder)</h3>
+<p><code>npm run compodoc</code></p>
+<p>Then, open &quot;docs/index.html&quot; in your browser to see your docs.</p>
+<h3 id="4-5-publish-docs-on-github-pages">4.5 Publish docs on Github pages</h3>
+<p>If you&#39;re using Github for your app source control. You can simply publish your docs to Github pages. Go to your project settings and set your page source to your &quot;docs&quot; folder.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25664216/3f851e9e-301a-11e7-9a59-cd529fc2c44d.png" alt="ionic-github-publish-docs" class="img-responsive"></p>
+<p>I made it for this repo, you can view it here :
+<a href="https://romainfallet.github.io/ionic-workflow-guide/">https://romainfallet.github.io/ionic-workflow-guide/</a></p>
+<h3 id="4-6-automatically-generate-docs-on-push">4.6 Automatically generate docs on push</h3>
+<p>What you don&#39;t want with your docs is that the published version on Github pages does not match the last changes you made. To automatically update your docs when you push somes changes, append this to &quot;scripts&quot; inside your &quot;package.json&quot; :</p>
+<pre class="line-numbers"><code class="language-json">&quot;git-push&quot;: &quot;npm run compodoc &amp;&amp; git add ./docs &amp;&amp; git commit -m &#39;Update docs&#39; &amp;&amp; git push -u origin master&quot;</code></pre><p>Then, use <code>npm run git-push</code> instead of <code>git push</code> to publish your commits. That way, you are sure that your last commits are fully and automatically documented.</p>
+<h2 id="5-set-up-our-production-app-server">5. Set up our Production App Server</h2>
+<p>We saw in the Environment Variables set up that we can build our app in production mode with :</p>
+<p><code>npm run build</code></p>
+<p>That packages our production ready app inside the &quot;www&quot; folder. Now we want to serve it.</p>
+<h3 id="5-1-append-this-to-dependencies-inside-your-package-json-">5.1 Append this to &quot;dependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;express&quot;: &quot;4.15.2&quot;,
+&quot;compression&quot;: &quot;1.6.2&quot;</code></pre><h3 id="5-2-install-the-server-dependencies">5.2 Install the server dependencies</h3>
+<p><code>npm install</code></p>
+<h3 id="5-3-create-a-new-server-js-file-in-your-project-root-folder-and-add-this-to-it">5.3 Create a new &quot;server.js&quot; file in your project root folder and add this to it</h3>
+<pre class="line-numbers"><code class="language-javascript">const express = require(&#39;express&#39;);
+const compression = require(&#39;compression&#39;);
+const path = require(&#39;path&#39;);
+const app = express();
+const port = process.env.PORT || 8080;
+const ENV = require(path.join(__dirname + &#39;/env/&#39; + (process.env.NODE_ENV ? process.env.NODE_ENV : &#39;dev&#39;) + &#39;.json&#39;));
+const forceSSL = function() {
+  return function (req, res, next) {
+    if (req.headers[&#39;x-forwarded-proto&#39;] !== &#39;https&#39;) {
+      return res.redirect([&#39;https://&#39;, req.get(&#39;Host&#39;), req.url].join(&#39;&#39;));
+    }
+    next();
+  }
+}
+
+// We force HTTPS and GZIP compression on production
+if (ENV.PRODUCTION) {
+    app.use(forceSSL());
+    app.use(compression());
+}
+
+app.use(express.static(__dirname + &#39;/www&#39;));
+
+// We redirect all GET requests to our &#39;index.html&#39; to let Ionic handle the rooting
+app.get(&#39;/*&#39;, function(req, res) {
+    res.sendFile(path.join(__dirname + &#39;/www/index.html&#39;));
+});
+
+app.listen(port, function() {
+    console.log(&#39;Listening on port &#39; + port + &#39;. isProduction : &#39; + ENV.PRODUCTION);
+});</code></pre><h3 id="5-4-then-append-this-to-scripts-inside-our-package-json-">5.4 Then, append this to &quot;scripts&quot; inside our &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;start&quot;: &quot;NODE_ENV=prod node ./server.js&quot;</code></pre><h3 id="5-5-our-production-app-server-can-now-be-started-with-this-command">5.5 Our production app server can now be started with this command</h3>
+<p><code>npm run start</code></p>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668300/a09c1ec4-3026-11e7-85ce-4a775ac66872.png" alt="ionic-production-app-server" class="img-responsive"></p>
+<h2 id="6-automatic-deployment-on-heroku">6. Automatic deployment on Heroku</h2>
+<p>Now that we have a production ready server. We need to deploy it somewhere in the web !</p>
+<h3 id="6-1-create-a-free-account-on-heroku">6.1 Create a free account on Heroku</h3>
+<p><a href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<h3 id="6-2-create-a-new-app">6.2 Create a new app</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668884/3b90b2c2-3028-11e7-8596-d14a56634b24.png" alt="ionc-heroku-create-app" class="img-responsive"></p>
+<h3 id="6-3-link-your-app-with-your-github-account">6.3 Link your app with your Github account</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25668887/3e98c392-3028-11e7-9b24-6ce0985874f0.png" alt="ionic-heroku-deploy" class="img-responsive"></p>
+<h3 id="6-4-enable-automatic-deploy">6.4 Enable automatic deploy</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/6952638/25669407/b55ea59a-3029-11e7-92c3-587c1002da1f.png" alt="ionic-heroku-automatic-deploy" class="img-responsive"></p>
+<h3 id="6-5-move-typescript-ionic-app-scripts-and-ionic-cli-build-ionic-angular-from-devdependencies-to-dependencies-inside-your-package-json-">6.5 Move &quot;typescript&quot;, &quot;@ionic/app-scripts&quot; and &quot;@ionic/cli-build-ionic-angular&quot; from &quot;devDependencies&quot; to &quot;dependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">  &quot;dependencies&quot;: {
+    &quot;&#40;ionic/app-scripts&quot;: &quot;1.3.7&quot;,
+    &quot;typescript&quot;: &quot;~2.2.1&quot;,
+    &quot;&#40;types/jasmine&quot;: &quot;2.5.41&quot;,</code></pre><p>This will make Heroku able to build our app.</p>
+<h3 id="6-6-append-this-to-scripts-inside-your-package-json-">6.6 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;heroku-postbuild&quot;: &quot;npm run build&quot;</code></pre><p>With this, Heroku will build our app in production mode as soon as our dependencies will be installed. We use &quot;ionic-app-scripts&quot; (which is now packaged in our dependencies) instead of &quot;ionic&quot; because the Ionic CLI is only installed on our computer locally.</p>
+<h3 id="6-7-add-this-inside-your-package-json-">6.7 Add this inside your &quot;package.json&quot;</h3>
+<p>This will make Heroku use the same environment in which we develop our app.</p>
+<pre class="line-numbers"><code class="language-json">&quot;engines&quot;: {
+  &quot;node&quot;: &quot;7.9.0&quot;,
+  &quot;npm&quot;: &quot;4.2.0&quot;
+}</code></pre><h3 id="6-8-deploy-to-heroku">6.8 Deploy to Heroku</h3>
+<p>To deploy, you just have to commit some changes. The automatic deploy will do the rest.</p>
+<p><code>git add . &amp;&amp; git commit -m &#39;Add Heroku deployment&#39; &amp;&amp; npm run git-push</code></p>
+<p>I made it for this repo, you can view it here :</p>
+<p><a href="https://ionic-workflow-guide.herokuapp.com/">https://ionic-workflow-guide.herokuapp.com/</a></p>
+<h2 id="7-set-up-dependencies-version-check-with-npm-check">7. Set up dependencies version check with npm-check</h2>
+<h3 id="7-1-append-this-to-devdependencies-inside-your-package-json-">7.1 Append this to &quot;devDependencies&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;npm-check&quot;: &quot;5.4.4&quot;</code></pre><h3 id="7-2-install-npm-check">7.2 Install npm-check</h3>
+<p><code>npm install</code></p>
+<h3 id="7-3-append-this-to-scripts-inside-your-package-json-">7.3 Append this to &quot;scripts&quot; inside your &quot;package.json&quot;</h3>
+<pre class="line-numbers"><code class="language-json">&quot;check&quot;: &quot;node ./node_modules/npm-check/bin/cli.js -u&quot;</code></pre><h3 id="4-4-check-your-dependencies-version-and-update-if-needed">4.4 Check your dependencies version and update if needed</h3>
+<p><code>npm run check</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+       <script src="./js/search/search_index.js"></script>
+
+    </body>
+</html>
