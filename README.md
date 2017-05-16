@@ -363,7 +363,7 @@ app.get('/*', function(req, res) {
 });
 
 app.listen(port, function() {
-  console.log('Listening on port ' + port + '. isProduction : ' + ENV.PRODUCTION);
+    console.log('Listening on port ' + port + '. isProduction : ' + ENV.PRODUCTION);
 });
 ```
 
