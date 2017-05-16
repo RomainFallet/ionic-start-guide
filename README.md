@@ -457,6 +457,6 @@ https://ionic-workflow-guide.herokuapp.com/
 "check": "node ./node_modules/npm-check/bin/cli.js -u"
 ```
 
-### 4.4 Check your dependencies version and update it if necessary
+### 4.4 Check your dependencies version and update if needed
 
 `npm run check`
