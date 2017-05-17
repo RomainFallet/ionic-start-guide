@@ -326,7 +326,7 @@ export class AppComponent {
 &quot;test-ci&quot;: &quot;karma start ./test-config/karma.conf.js --single-run&quot;,
 &quot;e2e&quot;: &quot;webdriver-manager update --standalone false --gecko false; protractor ./test-config/protractor.conf.js&quot;</code></pre><h3 id="2-4-install-dependencies">2.4 Install dependencies</h3>
 <p><code>npm install</code></p>
-<h3 id="2-5-let-s-add-your-first-test-create-a-new-file-src-app-component-spec-ts-and-add-the-following">2.5 Let&#39;s add your first test. Create a new file &quot;src/app.component.spec.ts&quot; and add the following</h3>
+<h3 id="2-5-let-s-add-your-first-test-for-your-appcomponent-create-a-new-file-src-app-component-spec-ts-and-add-the-following">2.5 Let&#39;s add your first test for your AppComponent. Create a new file &quot;src/app.component.spec.ts&quot; and add the following</h3>
 <pre class="line-numbers"><code class="language-javascript">import { async, TestBed } from &#39;&#40;angular/core/testing&#39;;
 import { IonicModule } from &#39;ionic-angular&#39;;
 
@@ -365,7 +365,71 @@ describe(&#39;AppComponent&#39;, () =&gt; {
 <p><code>ionic serve</code></p>
 <p>then :</p>
 <p><code>npm run e2e</code></p>
-<h2 id="3-set-up-environment-variables">3. Set up Environment Variables</h2>
+<h3 id="2-7-to-test-a-ionic-page-such-as-homepage-use-this">2.7 To test a Ionic page, such as &quot;HomePage&quot;, use this</h3>
+<pre class="line-numbers"><code class="language-javascript">import { async, TestBed } from &#39;&#40;angular/core/testing&#39;;
+import { IonicPageModule, Config } from &#39;ionic-angular&#39;;
+
+import { ConfigMock } from &#39;../../../test-config/mocks-ionic.ts&#39;;
+
+import { HomePage } from &#39;./home&#39;;
+
+describe(&#39;HomePage&#39;, () =&gt; {
+    let fixture;
+    let component;
+
+    beforeEach(async(() =&gt; {
+        TestBed.configureTestingModule({
+            declarations: [ HomePage ],
+            imports: [
+                IonicPageModule.forChild(HomePage)
+            ],
+            providers: [
+                { provide: Config, useClass: ConfigMock }
+            ]
+        })
+    }));
+
+    beforeEach(() =&gt; {
+        fixture = TestBed.createComponent(HomePage);
+        component = fixture.componentInstance;
+    });
+
+    it (&#39;should create a valid instance of HomePage&#39;, () =&gt; {
+        expect(component instanceof HomePage).toBe(true);
+    });
+});</code></pre><h3 id="2-8-to-test-a-custom-component-for-example-headercomponent-use-this">2.8 To test a custom component, for example &quot;HeaderComponent&quot;, use this</h3>
+<pre class="line-numbers"><code class="language-javascript">import { async, TestBed } from &#39;&#40;angular/core/testing&#39;;
+import { IonicModule, Config } from &#39;ionic-angular&#39;;
+
+import { ConfigMock } from &#39;../../../test-config/mocks-ionic&#39;;
+
+import { HeaderComponent } from &#39;./header.component&#39;;
+
+describe(&#39;HeaderComponent&#39;, () =&gt; {
+    let fixture;
+    let component;
+
+    beforeEach(async(() =&gt; {
+        TestBed.configureTestingModule({
+            declarations: [ HeaderComponent ],
+            imports: [
+                IonicModule
+            ],
+            providers: [
+                { provide: Config, useClass: ConfigMock }
+            ]
+        })
+    }));
+
+    beforeEach(() =&gt; {
+        fixture = TestBed.createComponent(HeaderComponent);
+        component = fixture.componentInstance;
+    });
+
+    it (&#39;should create a valid instance of HeaderComponent&#39;, () =&gt; {
+        expect(component instanceof HeaderComponent).toBe(true);
+    });
+});</code></pre><h2 id="3-set-up-environment-variables">3. Set up Environment Variables</h2>
 <h3 id="3-1-add-conf-file-and-environments-variables-json-files">3.1 Add conf file and Environments Variables json files</h3>
 <p><code>git clone https://github.com/RomainFallet/ionic-workflow-guide ./tmp</code></p>
 <p><code>cp -r ./tmp/{env,webpack.envars.js} ./ &amp;&amp; rm -rf ./tmp</code></p>
@@ -486,8 +550,8 @@ app.listen(port, function() {
 <h3 id="6-7-add-this-inside-your-package-json-">6.7 Add this inside your &quot;package.json&quot;</h3>
 <p>This will make Heroku use the same environment in which we develop our app.</p>
 <pre class="line-numbers"><code class="language-json">&quot;engines&quot;: {
-  &quot;node&quot;: &quot;7.9.0&quot;,
-  &quot;npm&quot;: &quot;4.2.0&quot;
+  &quot;node&quot;: &quot;7.10.0&quot;,
+  &quot;npm&quot;: &quot;4.6.1&quot;
 }</code></pre><h3 id="6-8-deploy-to-heroku">6.8 Deploy to Heroku</h3>
 <p>To deploy, you just have to commit some changes. The automatic deploy will do the rest.</p>
 <p><code>git add . &amp;&amp; git commit -m &#39;Add Heroku deployment&#39; &amp;&amp; npm run git-push</code></p>
