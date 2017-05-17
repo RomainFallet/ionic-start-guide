@@ -133,7 +133,7 @@ export class AppComponent {
 ### 2.4 Install dependencies
 `npm install`
 
-### 2.5 Let's add your first test. Create a new file "src/app.component.spec.ts" and add the following
+### 2.5 Let's add your first test for your AppComponent. Create a new file "src/app.component.spec.ts" and add the following
 ```javascript
 import { async, TestBed } from '@angular/core/testing';
 import { IonicModule } from 'ionic-angular';
@@ -184,6 +184,80 @@ To run end to end test (e2e), use :
 then :
 
 `npm run e2e`
+
+### 2.7 To test a Ionic page, such as "HomePage", use this
+
+```javascript
+import { async, TestBed } from '@angular/core/testing';
+import { IonicPageModule, Config } from 'ionic-angular';
+
+import { ConfigMock } from '../../../test-config/mocks-ionic.ts';
+
+import { HomePage } from './home';
+
+describe('HomePage', () => {
+    let fixture;
+    let component;
+
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ HomePage ],
+            imports: [
+                IonicPageModule.forChild(HomePage)
+            ],
+            providers: [
+                { provide: Config, useClass: ConfigMock }
+            ]
+        })
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HomePage);
+        component = fixture.componentInstance;
+    });
+
+    it ('should create a valid instance of HomePage', () => {
+        expect(component instanceof HomePage).toBe(true);
+    });
+});
+```
+
+### 2.8 To test a custom component, for example "HeaderComponent", use this
+
+```javascript
+import { async, TestBed } from '@angular/core/testing';
+import { IonicModule, Config } from 'ionic-angular';
+
+import { ConfigMock } from '../../../test-config/mocks-ionic';
+
+import { HeaderComponent } from './header.component';
+
+describe('HeaderComponent', () => {
+    let fixture;
+    let component;
+
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ HeaderComponent ],
+            imports: [
+                IonicModule
+            ],
+            providers: [
+                { provide: Config, useClass: ConfigMock }
+            ]
+        })
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HeaderComponent);
+        component = fixture.componentInstance;
+    });
+
+    it ('should create a valid instance of HeaderComponent', () => {
+        expect(component instanceof HeaderComponent).toBe(true);
+    });
+});
+```
 
 ## 3. Set up Environment Variables
 
