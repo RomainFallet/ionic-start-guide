@@ -424,8 +424,8 @@ This will make Heroku use the same environment in which we develop our app.
 
 ```json
 "engines": {
-  "node": "7.9.0",
-  "npm": "4.2.0"
+  "node": "7.10.0",
+  "npm": "4.6.1"
 }
 ```
 
