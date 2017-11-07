@@ -1,6 +1,11 @@
-import { async, TestBed } from '@angular/core/testing';
+/* Import Ionic & Angular core elements */
+import { async, TestBed, inject } from '@angular/core/testing';
 import { IonicModule } from 'ionic-angular';
 
+/* Import modules */
+import { AppModule } from './app.module';
+
+/* Import components */
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,9 +14,10 @@ describe('AppComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ AppComponent ],
+            declarations: [],
             imports: [
-                IonicModule.forRoot(AppComponent)
+                IonicModule.forRoot(AppComponent),
+                AppModule
             ],
             providers: [
             ]

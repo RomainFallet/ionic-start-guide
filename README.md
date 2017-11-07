@@ -135,9 +135,14 @@ export class AppComponent {
 
 ### 2.5 Let's add your first test for your AppComponent. Create a new file "src/app.component.spec.ts" and add the following
 ```javascript
-import { async, TestBed } from '@angular/core/testing';
+/* Import Ionic & Angular core elements */
+import { async, TestBed, inject } from '@angular/core/testing';
 import { IonicModule } from 'ionic-angular';
 
+/* Import modules */
+import { AppModule } from './app.module';
+
+/* Import components */
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -146,9 +151,10 @@ describe('AppComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ AppComponent ],
+            declarations: [],
             imports: [
-                IonicModule.forRoot(AppComponent)
+                IonicModule.forRoot(AppComponent),
+                AppModule
             ],
             providers: [
             ]
@@ -158,10 +164,6 @@ describe('AppComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(AppComponent);
         component = fixture.componentInstance;
-    });
-
-    it ('should create a valid instance of AppComponent', () => {
-        expect(component instanceof AppComponent).toBe(true);
     });
 });
 ```
@@ -188,11 +190,17 @@ then :
 ### 2.7 To test a Ionic page, such as "HomePage", use this
 
 ```javascript
+/* Import Ionic & Angular core elements */
 import { async, TestBed } from '@angular/core/testing';
-import { IonicPageModule, Config } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 
-import { ConfigMock } from '../../../test-config/mocks-ionic.ts';
+/* Import modules */
+import { HomePageModule } from './home.module';
 
+/* Import components */
+import { AppComponent } from '../../app/app.component';
+
+/* Import pages */
 import { HomePage } from './home';
 
 describe('HomePage', () => {
@@ -201,12 +209,12 @@ describe('HomePage', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ HomePage ],
+            declarations: [],
             imports: [
-                IonicPageModule.forChild(HomePage)
+                IonicModule.forRoot(AppComponent),
+                HomePageModule
             ],
             providers: [
-                { provide: Config, useClass: ConfigMock }
             ]
         })
     }));
@@ -225,11 +233,15 @@ describe('HomePage', () => {
 ### 2.8 To test a custom component, for example "HeaderComponent", use this
 
 ```javascript
+/* Import Ionic & Angular core elements */
 import { async, TestBed } from '@angular/core/testing';
-import { IonicModule, Config } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 
-import { ConfigMock } from '../../../test-config/mocks-ionic';
+/* Import modules */
+import { HeaderComponentModule } from './header.component.module';
 
+/* Import components */
+import { AppComponent } from '../../app/app.component';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -238,12 +250,12 @@ describe('HeaderComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ HeaderComponent ],
+            declarations: [],
             imports: [
-                IonicModule
+                IonicModule.forRoot(AppComponent),
+                HeaderComponentModule
             ],
             providers: [
-                { provide: Config, useClass: ConfigMock }
             ]
         })
     }));
