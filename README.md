@@ -165,6 +165,10 @@ describe('AppComponent', () => {
         fixture = TestBed.createComponent(AppComponent);
         component = fixture.componentInstance;
     });
+
+    it ('should create a valid instance of AppComponent', () => {
+        expect(component instanceof AppComponent).toBe(true);
+    });
 });
 ```
 
